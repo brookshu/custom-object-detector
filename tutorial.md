@@ -13,7 +13,7 @@ Next, download [Labelme](https://github.com/wkentaro/labelme/tree/main). This wi
 
 In each image, create polygons around each object in the photo. It can be done manually with the polygon tool, but the AI-polygon tool can help speed things up.
 
-[image]
+![image of bus, three people, and a car, objects visualized](images/img26_labelme.jpg)
 
 After creating the polygon, the following window will pop up. Label them as the class name. Two polygons having the same class ID will count as the same object, so this can be used if another object or the background splits the object in half. Otherwise, do not enter a class ID.
 
@@ -31,7 +31,7 @@ A couple changes were made from the [original](https://github.com/wkentaro/label
 
 Output should be a [folder](https://github.com/brookshu/custom-object-detector/tree/9725705cff8a98b8b320a7b6a507d6602bbb3dab/annotations) with annotations.json file and Visualization and JPEGImages directory. Visualizations should contain JPEGs of each image with the polygons you annotated around the objects as well as the class name (see image below). JPEGImages should just be a folder with each image as a JPEG and no annotations.
 
-[image]
+![image of bus, three people, and a car, objects visualized](images/img26_visualization.jpg)
 
 ## Converting from JSON/COCO to YOLO format
 
@@ -67,3 +67,8 @@ Run train.py (in yolov5 folder). Be sure to add your .yaml file as an argument. 
 Example: `python3 train.py --batch 4 --epochs 1 –dataset.yaml`
 
 ## Results
+Results will show up in yolov5/runs/train. For each run, there will be an exp# folder, with statistics like precision-confidence, recall-confidence, and PR curves as well as a confusion matrix and how well the model performed on the validation images.
+
+Here is an example of the resulting performance on the image I showed previously:
+![image of bus, three people, and a car, objects detected](images/img26_results.jpg)
+
