@@ -13,9 +13,11 @@ Next, download [Labelme](https://github.com/wkentaro/labelme/tree/main). This wi
 
 In each image, create polygons around each object in the photo. It can be done manually with the polygon tool, but the AI-polygon tool can help speed things up.
 
-![image of bus, three people, and a car, objects visualized](images/img26_labelme.jpg)
+![image of bus, three people, and a car, objects visualized](images/img26_labelme.png)
 
 After creating the polygon, the following window will pop up. Label them as the class name. Two polygons having the same class ID will count as the same object, so this can be used if another object or the background splits the object in half. Otherwise, do not enter a class ID.
+
+![image of a separated car and a person](images/img9_separated.png)
 
 After saving each image, a .json file should pop up in the same folder as your images with information on the polygons you just created.
 
@@ -70,5 +72,5 @@ Example: `python3 train.py --batch 4 --epochs 1 –dataset.yaml`
 Results will show up in yolov5/runs/train. For each run, there will be an exp# folder, with statistics like precision-confidence, recall-confidence, and PR curves as well as a confusion matrix and how well the model performed on the validation images.
 
 Here is an example of the resulting performance on the image I showed previously:
-![image of bus, three people, and a car, objects detected](images/img26_results.jpg)
+![image of bus, three people, and a car, objects detected](images/img26_results.png)
 
