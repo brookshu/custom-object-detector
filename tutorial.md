@@ -49,13 +49,21 @@ A couple of changes have been made from the [original](https://github.com/ultral
 
 The output should show up in a folder called [new_dir](https://github.com/brookshu/custom-object-detector/tree/018ee6066c6b14a3f0e7f286ab078e94e03368b0/new_dir). If you navigate within that to new_dir/labels/annotations/JPEGImages, you should see a .txt file for every image you've annotated. In each .txt file you should see one line per object, in the format [class_num] [x center ratio] [y center ratio] [width ratio] [height ratio].
 
-## Training the model
+## Organizing the folders for training
 To start, clone the the yolov5 folder from ultralytics and install the requirements.txt:
 ```
 git clone https://github.com/ultralytics/yolov5  # clone 
 cd yolov5 
 pip install -r requirements.txt  # install  
 ```
+Then, create a folder in the same directory as yolov5. It should have two folders within it: images and labels. Within each folder, there should be training and validation folders, with images in each. Corresponding image and .txt files should be in the same section (i.e. if img1.jpg is in images/validation/, img1.txt should be in labels/validation/). See how my [custom_datasets](https://github.com/brookshu/custom-object-detector/tree/88f645ec5db8915deaf3a0cbe9c164f970e5c2e5/custom_datasets) folder is organized for an example.
 
-Next, create a .yaml file in the data folder. It should look like `coco128.yaml`, with a path to the dataset root directory, and paths to folders with training and validation images relative to that. It should also have class names and numbers (use the numbers in the .txt files). Mine is called [`dataset.yaml`](https://github.com/brookshu/custom-object-detector/blob/main/yolov5/data/dataset.yaml).
+Lastly, create a .yaml file in the data folder. It should look like `coco128.yaml`, with a path to the dataset root directory, and paths to folders with training and validation images relative to that. It should also have class names and numbers (use the numbers in the .txt files). Mine is called [`dataset.yaml`](https://github.com/brookshu/custom-object-detector/blob/main/yolov5/data/dataset.yaml).
 
+## Training the model
+
+Run train.py (in yolov5 folder). Be sure to add your .yaml file as an argument. Some optional arguments include --batch and --epochs (See [L444](https://github.com/brookshu/custom-object-detector/blob/88f645ec5db8915deaf3a0cbe9c164f970e5c2e5/yolov5/train.py#L444) for more).
+
+Example: `python3 train.py --batch 4 --epochs 1 –dataset.yaml`
+
+## Results
