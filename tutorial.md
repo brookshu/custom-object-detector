@@ -15,7 +15,7 @@ In each image, create polygons around each object in the photo. It can be done m
 
 ![image of bus, three people, and a car, objects visualized](images/img26_labelme.png)
 
-After creating the polygon, the following window will pop up. Label them as the class name. Two polygons having the same group ID will count as the same object. So, if another object or the background splits the object in half, be sure to put a group ID. Otherwise, do not enter a class ID. No label description is needed. As you can see in the image below, there are two car (1) polygons, because the car is separated by the pole, so I used 1 as a group ID for both parts.
+After creating the polygon, the window in the following image will pop up. Put the class name as the label. Put a group ID if the object is split by another object or the background. Two polygons having the same group ID will count as the same object. Otherwise, do not enter it. No label description is needed. As you can see in the image below, there are two *car (1)* polygons, because the car is separated by the pole, so 1 is used as a group ID for both parts.
 
 ![image of a separated car and a person](images/img9_separated.png)
 
