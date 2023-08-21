@@ -9,7 +9,7 @@ The classes I chose were Person, Car, Motorcycle, and Bus. Here's an example of 
 
 ![image of bus, three people, and a car](images/img26.jpg)
 
-Next, download [Labelme](https://github.com/wkentaro/labelme/tree/main). This will be the tool used to create annotations.
+Next, download [Labelme](https://github.com/wkentaro/labelme/tree/main) by [wkentaro](https://github.com/wkentaro). This will be the tool used to create annotations.
 
 In each image, create polygons around each object in the photo. It can be done manually with the polygon tool, but the AI-polygon tool can help speed things up. The polygons should look like those in the following image.
 
@@ -27,12 +27,12 @@ To start, we'll convert from the Labelme format to JSON format using [convert_la
 
 This code takes three arguments with `argparse`: a path to the directory with .json files from Labelme, a path to an output directory, and the path to [labels.txt](https://github.com/brookshu/custom-object-detector/blob/49152dd56aaeee393c6a864a248bc40bd2345d9d/labels.txt), which should have a list of the classes you are using.
 
-Example run:
+Example run code:
 ```
 python3 /Users/brookshu/Documents/convert_labelme.py /Users/brookshu/Desktop/annotate/ /Users/brookshu/Desktop/annotate_output --labels /Users/brookshu/Documents/labels.txt
 ```
 
-Output should be a [folder](https://github.com/brookshu/custom-object-detector/tree/9725705cff8a98b8b320a7b6a507d6602bbb3dab/annotations) with annotations.json file and Visualization and JPEGImages directory. Visualizations should contain JPEGs of each image with the polygons you annotated around the objects as well as the class name (see image below). JPEGImages should just be a folder with each image as a JPEG and no annotations.
+The output should be a [folder](https://github.com/brookshu/custom-object-detector/tree/9725705cff8a98b8b320a7b6a507d6602bbb3dab/annotations) with annotations.json file in addition to two directories called Visualization and JPEGImages. Visualizations should contain JPEGs of each image with the polygons you annotated around the objects as well as the class name (see image below). You can use these images to make sure your polygons and labels look correct. JPEGImages should just be a folder with each image as a JPEG and no annotations.
 
 ![image of bus, three people, and a car, objects visualized](images/img26_visualization.jpg)
 
@@ -48,7 +48,7 @@ A couple of changes have been made from the [original](https://github.com/ultral
 
 - `use_segments` in L388 was changed to  `False`
 
-- `cls91to80` in L389 was changed to `False`
+- `cls91to80` in L389 was changed to `False`, because the label id does not need to be changed
 
 The output should show up in a folder called [new_dir](https://github.com/brookshu/custom-object-detector/tree/018ee6066c6b14a3f0e7f286ab078e94e03368b0/new_dir). If you navigate within that to new_dir/labels/annotations/JPEGImages, you should see a .txt file for every image you've annotated. In each .txt file you should see one line per object, in the format [class_num] [x center ratio] [y center ratio] [width ratio] [height ratio].
 
