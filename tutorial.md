@@ -25,11 +25,13 @@ To start, we'll convert from the Labelme format to JSON format
 
 https://github.com/brookshu/custom-object-detector/blob/f2b5493bfc3f14f3a04595154d666bdab83e979c/convert_labelme.py
 
+This code takes three arguments with `argparse`: a path to the directory with .json files from Labelme, a path to an output directory, and the path to [labels.txt](), which has a list of the classes you are using. 
+
 See labels.txt too and make ur own
 
 A couple changes were made from the [original](https://github.com/wkentaro/labelme/blob/main/examples/instance_segmentation/labelme2coco.py). ?
 
-Output should be a folder called annotations with annotations.json file and Visualization and JPEGImages directory.
+Output should be a folder (see my [example](https://github.com/brookshu/custom-object-detector/tree/9725705cff8a98b8b320a7b6a507d6602bbb3dab/annotations)) with annotations.json file and Visualization and JPEGImages directory.
 
 ## Converting from JSON/COCO to YOLO format
 
