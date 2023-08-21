@@ -19,7 +19,7 @@ After creating the polygon, the window in the following image will pop up. Put t
 
 ![image of a separated car and a person](images/img9_separated.png)
 
-After saving each image, a .json file should pop up in the same folder as your images with information on the polygons you just created.
+After saving each image, a new .json file should pop up (per image) in the same folder as your images. It should contain information on the polygons you just created.
 
 ## Converting Labelme to JSON/COCO format
 
