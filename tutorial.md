@@ -10,3 +10,31 @@ The classes I chose were Person, Car, Motorcycle, and Bus. Here's an example of 
 [image]
 
 Next, download [Labelme](https://github.com/wkentaro/labelme/tree/main). This will be the tool used to create annotations.
+
+In each image, create polygons around each object in the photo. It can be done manually with the polygon tool, but the AI-polygon tool can help speed things up.
+
+[image]
+
+After creating the polygon, the following window will pop up. Label them as the class name. Two polygons having the same class ID will count as the same object, so this can be used if another object or the background splits the object in half. Otherwise, do not enter a class ID.
+
+After saving each image, a .json file should pop up in the same folder as your images with information on the polygons you just created.
+
+## Converting Labelme to JSON/COCO format
+
+To start, we'll convert from the Labelme format to JSON format
+
+https://github.com/brookshu/custom-object-detector/blob/f2b5493bfc3f14f3a04595154d666bdab83e979c/convert_labelme.py
+
+See labels.txt too and make ur own
+
+A couple changes were made from the [original](https://github.com/wkentaro/labelme/blob/main/examples/instance_segmentation/labelme2coco.py). ?
+
+Output should be a folder called annotations with annotations.json file and Visualization and JPEGImages directory.
+
+## Converting from JSON/COCO to YOLO format
+
+Then, convert from the JSON
+
+
+
+
