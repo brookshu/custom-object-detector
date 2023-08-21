@@ -7,7 +7,7 @@ To start, choose 2-5 classes of objects that you want to detect. You will need t
 
 The classes I chose were Person, Car, Motorcycle, and Bus. Here's an example of an image that I chose:
 
-[image]
+![image of bus, three people, and a car](images/img26.jpg)
 
 Next, download [Labelme](https://github.com/wkentaro/labelme/tree/main). This will be the tool used to create annotations.
 
