@@ -1,8 +1,8 @@
 # github: wkentaro/labelme
 
+
 #!/usr/bin/env python
 
-# CMD TO RUN: python3 /Users/hu/reu/convert_labelme.py /Users/hu/Desktop/annotate/ /Users/hu/Desktop/annotate_output --labels /Users/hu/Downloads/labels.txt
 
 import argparse
 import collections
