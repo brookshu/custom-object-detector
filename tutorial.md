@@ -63,9 +63,12 @@ git clone https://github.com/ultralytics/yolov5  # clone
 cd yolov5 
 pip install -r requirements.txt  # install  
 ```
-Then, create a folder for the dataset in the same directory as yolov5. Within it, create two more folders: images and labels. Within each of those folders, there should be training and validation folders, with images in each. Format all images as JPEGs (the results in JPEGImages from the Labelme to JSON conversion program can be used). Corresponding image and .txt files should be in the same section (i.e. if `img1.jpg` is in images/validation/, `img1.txt` should be in labels/validation/). A good rule is to split the images you have 80-20, training and validation. See how my [custom_datasets](https://github.com/brookshu/custom-object-detector/tree/88f645ec5db8915deaf3a0cbe9c164f970e5c2e5/custom_datasets) folder is organized for an example. 
 
-Lastly, create a .yaml file in yolov5/data/. It should look similar to [`coco128.yaml`](https://github.com/brookshu/custom-object-detector/blob/main/yolov5/data/coco128.yaml), with a path to the dataset root directory, and paths to folders with training and validation images relative to that. It should also have class names and numbers (use the numbers in the .txt files). See [`dataset.yaml`].(https://github.com/brookshu/custom-object-detector/blob/main/yolov5/data/dataset.yaml).
+<img align="right" width="250" src="images/format_images.png">
+
+Then, create a folder for the dataset in the same directory as yolov5. Within it, create two more folders: images and labels. Within each of those folders, there should be training and validation folders, with images in each. Format all images as JPEGs (the results in JPEGImages from the Labelme to JSON conversion program can be used). Corresponding image and .txt files should be in the same section (i.e. if `img1.jpg` is in images/validation/, `img1.txt` should be in labels/validation/). A good rule is to split the images you have 80-20, training and validation. See the image on the right from [custom_datasets](https://github.com/brookshu/custom-object-detector/tree/88f645ec5db8915deaf3a0cbe9c164f970e5c2e5/custom_datasets) for an example (ignore `train_custom.cache` and `val_custom.cache`). 
+
+Lastly, create a .yaml file in yolov5/data/. It should look similar to [`coco128.yaml`](https://github.com/brookshu/custom-object-detector/blob/main/yolov5/data/coco128.yaml), with a path to the dataset root directory, and paths to folders with training and validation images relative to that. It should also have class names and numbers (use the numbers in the .txt files). See [`dataset.yaml`](https://github.com/brookshu/custom-object-detector/blob/main/yolov5/data/dataset.yaml).
 
 ## Training the model
 
@@ -79,7 +82,7 @@ python3 train.py --batch 4 --epochs 1 –dataset.yaml
 ## Results
 Results will show up in yolov5/runs/train. Each time you run `train.py` run, there will be a new exp# folder, containing statistics like precision-confidence, recall-confidence, and PR curves as well as a confusion matrix and how well the model performed on the validation images.
 
-Here is an example of the resulting performance on the image I showed previously:
+Here is an example of the resulting performance on the image I showed previously after some hundred epochs:
 ![image of bus, three people, and a car, objects detected](images/img26_result.png)
 
 ## Acknowledgements
