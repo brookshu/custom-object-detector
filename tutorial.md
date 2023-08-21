@@ -29,7 +29,9 @@ This code takes three arguments with `argparse`: a path to the directory with .j
 
 A couple changes were made from the [original](https://github.com/wkentaro/labelme/blob/main/examples/instance_segmentation/labelme2coco.py). ?
 
-Output should be a folder (see my [example](https://github.com/brookshu/custom-object-detector/tree/9725705cff8a98b8b320a7b6a507d6602bbb3dab/annotations)) with annotations.json file and Visualization and JPEGImages directory.
+Output should be a [folder](https://github.com/brookshu/custom-object-detector/tree/9725705cff8a98b8b320a7b6a507d6602bbb3dab/annotations) with annotations.json file and Visualization and JPEGImages directory. Visualizations should contain JPEGs of each image with the polygons you annotated around the objects as well as the class name (see image below). JPEGImages should just be a folder with each image as a JPEG and no annotations.
+
+[image]
 
 ## Converting from JSON/COCO to YOLO format
 
@@ -48,7 +50,12 @@ A couple of changes have been made from the [original](https://github.com/ultral
 The output should show up in a folder called [new_dir](https://github.com/brookshu/custom-object-detector/tree/018ee6066c6b14a3f0e7f286ab078e94e03368b0/new_dir). If you navigate within that to new_dir/labels/annotations/JPEGImages, you should see a .txt file for every image you've annotated. In each .txt file you should see one line per object, in the format [class_num] [x center ratio] [y center ratio] [width ratio] [height ratio].
 
 ## Training the model
+To start, clone the the yolov5 folder from ultralytics and install the requirements.txt:
+```
+git clone https://github.com/ultralytics/yolov5  # clone 
+cd yolov5 
+pip install -r requirements.txt  # install  
+```
 
-
-
+Next, create a .yaml file in the data folder. It should look like `coco128.yaml`, with a path to the dataset root directory, and paths to folders with training and validation images relative to that. It should also have class names and numbers (use the numbers in the .txt files). Mine is called [`dataset.yaml`](https://github.com/brookshu/custom-object-detector/blob/main/yolov5/data/dataset.yaml).
 
