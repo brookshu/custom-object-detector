@@ -11,11 +11,11 @@ The classes I chose were Person, Car, Motorcycle, and Bus. Here's an example of 
 
 Next, download [Labelme](https://github.com/wkentaro/labelme/tree/main). This will be the tool used to create annotations.
 
-In each image, create polygons around each object in the photo. It can be done manually with the polygon tool, but the AI-polygon tool can help speed things up.
+In each image, create polygons around each object in the photo. It can be done manually with the polygon tool, but the AI-polygon tool can help speed things up. The polygons should look like those in the following image.
 
 ![image of bus, three people, and a car, objects visualized](images/img26_labelme.png)
 
-After creating the polygon, the following window will pop up. Label them as the class name. Two polygons having the same class ID will count as the same object, so this can be used if another object or the background splits the object in half. Otherwise, do not enter a class ID.
+After creating the polygon, the following window will pop up. Label them as the class name. Two polygons having the same class ID will count as the same object, so this can be used if another object or the background splits the object in half. Otherwise, do not enter a class ID. As you can see in the image below, there are two car (1) polygons, because the car is separated by the pole, so I used 1 as a class ID for both parts.
 
 ![image of a separated car and a person](images/img9_separated.png)
 
@@ -23,13 +23,14 @@ After saving each image, a .json file should pop up in the same folder as your i
 
 ## Converting Labelme to JSON/COCO format
 
-To start, we'll convert from the Labelme format to JSON format
-
-https://github.com/brookshu/custom-object-detector/blob/f2b5493bfc3f14f3a04595154d666bdab83e979c/convert_labelme.py
+To start, we'll convert from the Labelme format to JSON format using [convert_labelme.py](https://github.com/brookshu/custom-object-detector/blob/f2b5493bfc3f14f3a04595154d666bdab83e979c/convert_labelme.py) (a link to the [original](https://github.com/wkentaro/labelme/blob/main/examples/instance_segmentation/labelme2coco.py)).
 
 This code takes three arguments with `argparse`: a path to the directory with .json files from Labelme, a path to an output directory, and the path to [labels.txt](https://github.com/brookshu/custom-object-detector/blob/49152dd56aaeee393c6a864a248bc40bd2345d9d/labels.txt), which should have a list of the classes you are using.
 
-A couple changes were made from the [original](https://github.com/wkentaro/labelme/blob/main/examples/instance_segmentation/labelme2coco.py). ?
+Example run:
+```
+python3 /Users/brookshu/Documents/convert_labelme.py /Users/brookshu/Desktop/annotate/ /Users/brookshu/Desktop/annotate_output --labels /Users/brookshu/Documents/labels.txt
+```
 
 Output should be a [folder](https://github.com/brookshu/custom-object-detector/tree/9725705cff8a98b8b320a7b6a507d6602bbb3dab/annotations) with annotations.json file and Visualization and JPEGImages directory. Visualizations should contain JPEGs of each image with the polygons you annotated around the objects as well as the class name (see image below). JPEGImages should just be a folder with each image as a JPEG and no annotations.
 
