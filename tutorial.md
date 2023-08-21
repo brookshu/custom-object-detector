@@ -34,7 +34,7 @@ Example run code:
 python3 /Users/brookshu/Documents/convert_labelme.py /Users/brookshu/Desktop/annotate/ /Users/brookshu/Desktop/annotate_output --labels /Users/brookshu/Documents/labels.txt
 ```
 
-The output should be a [folder](https://github.com/brookshu/custom-object-detector/tree/9725705cff8a98b8b320a7b6a507d6602bbb3dab/annotations) with an `annotations.json` file in addition to two directories called Visualization and JPEGImages. Visualizations should contain JPEGs of each image with the polygons you annotated around the objects as well as the class name and a bounding box. You can use these images to make sure your polygons and labels look correct. JPEGImages should just be a folder with each image as a JPEG and no annotations. Below is an example of an image from the Visualizations folder.
+The output should be a [folder](https://github.com/brookshu/custom-object-detector/tree/9725705cff8a98b8b320a7b6a507d6602bbb3dab/annotations) with an `annotations.json` file in addition to two directories, called Visualization and JPEGImages. Visualizations should contain JPEGs of each image with the polygons you annotated around the objects as well as the class name and a bounding box. You can use these images to make sure your polygons and labels look correct. JPEGImages should just be a folder with each image as a JPEG and no annotations. Below is an example of an image from the Visualizations folder.
 
 ![image of bus, three people, and a car, objects visualized](images/img26_visualization.jpg)
 
@@ -63,7 +63,7 @@ git clone https://github.com/ultralytics/yolov5  # clone
 cd yolov5 
 pip install -r requirements.txt  # install  
 ```
-Then, create a folder for the dataset in the same directory as yolov5. Within it, create two more folders: images and labels. Within each of those folders, there should be training and validation folders, with images in each. Corresponding image and .txt files should be in the same section (i.e. if `img1.jpg` is in images/validation/, `img1.txt` should be in labels/validation/). A good rule is to split the images you have 80-20, training and validation. See how my [custom_datasets](https://github.com/brookshu/custom-object-detector/tree/88f645ec5db8915deaf3a0cbe9c164f970e5c2e5/custom_datasets) folder is organized for an example. 
+Then, create a folder for the dataset in the same directory as yolov5. Within it, create two more folders: images and labels. Within each of those folders, there should be training and validation folders, with images in each. Format all images as JPEGs (the results in JPEGImages from the Labelme to JSON conversion program can be used). Corresponding image and .txt files should be in the same section (i.e. if `img1.jpg` is in images/validation/, `img1.txt` should be in labels/validation/). A good rule is to split the images you have 80-20, training and validation. See how my [custom_datasets](https://github.com/brookshu/custom-object-detector/tree/88f645ec5db8915deaf3a0cbe9c164f970e5c2e5/custom_datasets) folder is organized for an example. 
 
 Lastly, create a .yaml file in yolov5/data/. It should look similar to [`coco128.yaml`](https://github.com/brookshu/custom-object-detector/blob/main/yolov5/data/coco128.yaml), with a path to the dataset root directory, and paths to folders with training and validation images relative to that. It should also have class names and numbers (use the numbers in the .txt files). See [`dataset.yaml`].(https://github.com/brookshu/custom-object-detector/blob/main/yolov5/data/dataset.yaml).
 
