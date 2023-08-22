@@ -84,9 +84,8 @@ python3 train.py --batch 4 --epochs 1 –dataset.yaml
 
 When running the code, it is possible that the following error will occur just after the training is finished:
 
-```
-RuntimeError: Couldn't load custom C++ ops. This can happen if your PyTorch and torchvision versions are incompatible, or if you had errors while compiling torchvision from source. For further information on the compatible versions, check https://github.com/pytorch/vision#installation for the compatibility matrix. Please check your PyTorch version with torch.__version__ and your torchvision version with torchvision.__version__ and verify if they are compatible, and if not please reinstall torchvision so that it matches your PyTorch install. 
-```
+```RuntimeError: Couldn't load custom C++ ops. This can happen if your PyTorch and torchvision versions are incompatible, or if you had errors while compiling torchvision from source. For further information on the compatible versions, check https://github.com/pytorch/vision#installation for the compatibility matrix. Please check your PyTorch version with torch.__version__ and your torchvision version with torchvision.__version__ and verify if they are compatible, and if not please reinstall torchvision so that it matches your PyTorch install. ```
+
 The weights should still update. To fix this error, torch and/or torchvision may need to be redownloaded. This tutorial uses torch version 2.0.1+cu117 and torchvision version 0.15.2+cu117. Versions can be found with the following code:
 
 ```
